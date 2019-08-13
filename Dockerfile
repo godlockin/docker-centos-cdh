@@ -5,11 +5,11 @@ MAINTAINER godlockin <stevenchenworking@gmail.com>
 USER root
 
 # setup repo
-RUN yum install -y wget \
+RUN yaum install -y wget \
     && wget -c https://archive.cloudera.com/cm6/6.3.0/redhat7/yum/cloudera-manager.repo -P /etc/yum.repos.d/ \
     && rpm --import https://archive.cloudera.com/cm6/6.3.0/redhat7/yum/RPM-GPG-KEY-cloudera
 
-RUN yum install -y perl mariadb-server openssl openssh-server bind-utils libxslt cyrus-sasl-plain cyrus-sasl-gssapi fuse fuse-libs mod_ssl openssl-devel python-psycopg2 MySQL-python libpq.so.5 && yum clean all
+RUN yum install -y wget perl mariadb-server openssl openssh-server bind-utils libxslt cyrus-sasl-plain cyrus-sasl-gssapi fuse fuse-libs mod_ssl openssl-devel python-psycopg2 MySQL-python libpq.so.5 psmisc portmap iproute iproute-doc && yum clean all
 
 # download rpm packages and install and remove useless files
 RUN wget -c https://archive.cloudera.com/cm6/6.3.0/redhat7/yum/RPMS/x86_64/cloudera-manager-agent-6.3.0-1281944.el7.x86_64.rpm \
